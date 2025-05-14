@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Account</title>
+</head>
+<body>
+    <h1>Create Account</h1>
+    <form action="#" th:action="@{/api/accounts}" th:object="${account}" method="post">
+        <p>Holder Name: <input type="text" th:field="*{accountHolderName}" /></p>
+        <p>Initial Balance: <input type="number" th:field="*{balance}" /></p>
+        <p><button type="submit">Create</button></p>
+    </form>
+    <a href="/api/accounts">Back to Accounts</a>
+</body>
+</html>
