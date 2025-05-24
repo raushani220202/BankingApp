@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Accounts</title>
+</head>
+<body>
+    <h1>Accounts List</h1>
+    <a href="/api/accounts/new">Create New Account</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Holder Name</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="account : ${accounts}">
+            <td th:text="${account.id}"></td>
+            <td th:text="${account.accountHolderName}"></td>
+            <td th:text="${account.balance}"></td>
+            <td>
+                <a th:href="@{/api/accounts/{id}(id=${account.id})}">View</a> |
+                <a th:href="@{/api/accounts/{id}/deposit(id=${account.id})}">Deposit</a> |
+                <a th:href="@{/api/accounts/{id}/withdraw(id=${account.id})}">Withdraw</a> |
+                <a th:href="@{/api/accounts/delete/{id}(id=${account.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
